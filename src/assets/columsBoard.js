@@ -42,4 +42,26 @@ export default class Columns {
       this.generatePiece()
     }
   }
+
+  makeMove(move) {
+    if (move === 'ArrowUp') {
+      this.piece.content = [this.piece.content[1], this.piece.content[2], this.piece.content[0]]
+    }
+    if (move === 'ArrowDown' && this.piece.y < BOARD_HEIGHT -1) {
+      this.piece.y++
+    }
+    if (move === 'ArrowLeft' && this.piece.x-1 > -1) {
+      this.board[this.piece.y - 2][this.piece.x] = 0
+      this.board[this.piece.y - 1][this.piece.x] = 0
+      this.board[this.piece.y][this.piece.x] = 0
+      this.piece.x--
+    }
+    if (move === 'ArrowRight' && this.piece.x+1 < BOARD_WIDTH) {
+      this.board[this.piece.y - 2][this.piece.x] = 0
+      this.board[this.piece.y - 1][this.piece.x] = 0
+      this.board[this.piece.y][this.piece.x] = 0
+      this.piece.x++
+    }
+    this.draw()
+  }
 }
