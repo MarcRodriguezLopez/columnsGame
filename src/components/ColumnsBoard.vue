@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from 'vue'
 import Columns from '@/assets/columsBoard.js'
+import ColumnsCell from '@/components/ColumnsCell.vue'
 
 const columns = ref(new Columns())
 columns.value.generatePiece()
@@ -20,10 +21,9 @@ document.onkeydown = function(event) {
 </script>
 
 <template>
-  {{ columns.piece }}
-  <div class="m-auto" :key="i">
+  <div class="m-auto bg-black" :key="i">
     <div v-for="(y, i) in columns.board" :key="'row' + i" class="flex">
-      <div v-for="(x, j) in y" :key="'col' + j" class="w-6 h-6 bg-black text-white">{{ x }}</div>
+      <ColumnsCell v-for="(x, j) in y" :key="'col' + j" :number="x" />
     </div>
   </div>
 </template>

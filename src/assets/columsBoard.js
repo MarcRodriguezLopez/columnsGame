@@ -47,7 +47,7 @@ export default class Columns {
     if (move === 'ArrowUp') {
       this.piece.content = [this.piece.content[1], this.piece.content[2], this.piece.content[0]]
     }
-    if (move === 'ArrowDown' && this.piece.y < BOARD_HEIGHT -1) {
+    if (move === 'ArrowDown' && this.piece.y+1 < BOARD_HEIGHT && this.board[this.piece.y+1][this.piece.x] === 0) {
       this.piece.y++
     }
     if (move === 'ArrowLeft' && this.piece.x-1 > -1) {
