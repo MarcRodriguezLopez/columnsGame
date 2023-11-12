@@ -111,6 +111,8 @@ export default class Columns {
       }
     }
 
+    // Aqui revisamos que el tablero anterior y el nuevo sean iguales.
+    // En caso de que sean distintos revisamos de nuevo todo el tablero para revisar si se han formado trios nuevos y, en dicho caso, eliminarlos
     const oldBoard = this.board
     this.board = board
     if (oldBoard !== board) {
