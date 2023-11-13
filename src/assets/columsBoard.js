@@ -12,14 +12,17 @@ export default class Columns {
       .map(() => {
         return Array(BOARD_WIDTH).fill(0)
       })
+    this.nextPiece = [randomColor(), randomColor(), randomColor()]
+    this.generatePiece()
   }
 
   generatePiece() {
     this.piece = {
-      content: [randomColor(), randomColor(), randomColor()],
+      content: this.nextPiece,
       x: BOARD_WIDTH / 2,
       y: 2
     }
+    this.nextPiece = [randomColor(), randomColor(), randomColor()]
   }
 
   draw() {
